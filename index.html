@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos - Document</title>
+</head>
+<body>
+    <div id="resultado"></div>
+    <input type="text" id="nombre" placeholder="Ingrese su nombre" />
+    <script>
+        var player = new Object(); // Clase generica Objeto
+        player.name = "Mike";
+        player.level = 3;
+        player.points = "8";
+        
+        console.log(player);
+
+        var player2 = new Object();
+        player2.name = "Eduardo"; // set
+        player2.level = 6;   // set
+        player2.points = "10";   // set
+        player2.school = "Kruger School X";   // set
+        
+        console.log(player2);
+
+        
+        var user = new Object();
+        
+        var wwwww = document.getElementById('nombre');
+        
+        user.Nombre = wwwww; // "Edgardo";
+        user.Email = "edulego@yahoo.com";
+        user.Login = "pepito2024";
+        user.Password = "k2024"; // Encriptar
+        user.FirsName = "Edgardo";
+        user.LastName = "Caizaluisa";
+        user.BirthDate = "2000-20-20";
+        
+        var player3 = {
+            name: "Mike",
+            level: 3,
+            points: "8",
+        };
+
+        console.log(player3.name);
+        console.log(player3["name"]);
+        
+    </script>
+</body>
+</html>

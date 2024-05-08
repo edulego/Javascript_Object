@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+    <div id="profile" style="display: none;">
+        <img src="profile.png" alt="Login">
+        <br/>
+        <span id="mensaje"></span>
+        <br/>
+        <button onclick="numeroAccesos();">Accesos</button>
+        <br/>
+        <span id="numero"></span>
+    </div>
+    <div id="autenticacion" style="display: block;">
+        <input type="text" id="usuario" placeholder="Ingrese su usuario" />
+        <br/>
+        <input type="password" id="clave" placeholder="Ingrese clave" onkeypress="validarTeclado(event);" />
+        <br/><br/>
+        <button onclick="procesarClic();">Autenticar</button>
+        <br/>
+    </div>
+    <script>
+        var user = {
+            "login": "",
+            "clave": "",
+            contador: 0,
+            profile: {
+                id: 0,
+                nombreperfil: ""
+            },
+            acceso1: function(){
+                this.contador++;
+                return this.contador;
+            }
+        }
+        var procesarClic =function(){
+            var user1 = document.getElementById('usuario').value;
+            var clave1 = document.getElementById('clave').value;
+            if(clave1 == "1234"){
+                user.login = user1;
+                user.clave = clave1;
+                user.profile.id = 5;
+                user.profile.nombreperfil = "Administrador";
+                
+                document.getElementById('profile').style = "display:block";
+                document.getElementById('autenticacion').style = "display:none";
+                document.getElementById('mensaje').innerHTML = "Bienvenido " + user.login + "!!  usted está ingresando como " + user.profile.nombreperfil  + ", su total de ingresos ha sido: " + user.acceso1();
+            }
+            else{
+                alert('La clave ingresada es inválida.');
+            }
+        } // Fin de código
+
+        var numeroAccesos = function(){
+            document.getElementById('numero').innerHTML = "Total accesos: " + user.acceso1();
+        }
+
+        var validarTeclado = function(e){
+            if(e.keyCode == 13){ // Enter
+                procesarClic();
+            }
+        }
+
+    </script>
+</body>
+</html>
